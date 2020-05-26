@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+                   <title>Cadastro de Usuário do Sistema</title>
+         </h:head>
+  
+         <h:body>
+            <h1>Cadastro de Usuário do Sistema</h1>
+            <h:form>    
+                 
+              <h3>Nome Completo</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iNomeUser" value="#{userBean.user.nome}" />
+                  <p:outputLabel for="@previous" value="Nome" />
+              </span>
+              
+              <h3>Login</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iLoginUser" value="#{userBean.user.login}" />
+                  <p:outputLabel for="@previous" value="Login" />
+              </span>
+              
+              <h3>Senha</h3>
+              <span class="ui-float-label">
+                <p:password id="iPwdUser" value="#{userBean.user.pwd}" feedback="true" />    
+                <p:outputLabel for="@previous" value="Senha" />
+              </span>
+
+              <h3>Endereço</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iEndUser" value="#{userBean.user.endereco}" />
+                  <p:outputLabel for="@previous" value="Endereço" />
+              </span>   
+
+              <h3>E-mail</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iEmailUser" value="#{userBean.user.email}" />
+                  <p:outputLabel for="@previous" value="E-mail" />
+              </span>   
+
+              <h3>Telefone</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iUserFone" value="#{userBean.user.fone}" mask="(99) 9999-9999"/>
+                <p:outputLabel for="@previous" value="Telefone:" />
+              </span>
+
+              <h3>Data de Nascimento</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iDatNasc" value="#{userBean.user.dataNasc}" mask="99/99/9999"/>
+                <p:outputLabel for="@previous" value="Data: " />
+              </span> 
+
+              <br></br>
+              <br></br>
+
+              <p:commandButton value="Cadastrar" id="cadUserButton" 
+              action="#{userBean.salvar}" style="margin-right:20px;" 
+              styleClass="ui-priority-primary" />
+            
+            </h:form>
+         </h:body>
+</html>

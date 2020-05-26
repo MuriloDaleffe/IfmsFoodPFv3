@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+                   <title>Cadastro de Mesa</title>
+         </h:head>
+  
+         <h:body>
+            <h1>Cadastro de Mesa</h1>
+            <h:form>   
+              <h3>Número da Mesa</h3>
+              <p:inputNumber id="iNumMesa" value="#{mesaBean.mesa.num}">
+              </p:inputNumber> 
+              <br></br>
+              <br></br>
+              <p:commandButton value="Cadastrar Mesa" id="cadMesaButton" 
+              action="#{mesaBean.salvar}" style="margin-right:20px;" 
+              styleClass="ui-priority-primary" />
+            
+            </h:form>
+         </h:body>
+</html>

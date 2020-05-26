@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+                   <title>Cadastro de Produto</title>
+         </h:head>
+  
+         <h:body>
+
+            <h1>Produtos Cadastrados</h1>
+
+            <h:form id="form">
+
+                <p:dataTable var="produto" value="#{produtoBean.listarTodos()}">
+                    <p:column headerText="Descrição">
+                        <h:outputText value="#{produto.descricao}" />
+                    </p:column>
+                
+                    <p:column headerText="Estoque Mínimo (Unidades)">
+                        <h:outputText value="#{produto.estoqueMin}" />
+                    </p:column>
+                
+                    <p:column headerText="Estoque Máximo (Unidades)">
+                        <h:outputText value="#{produto.estoqueMax}" />
+                    </p:column>
+                
+                    <p:column headerText="Valor (R$)">
+                        <h:outputText value="#{produto.valor}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Deletar</f:facet>
+                        <h:commandButton action="#{produtoBean.deletar(produto)}"                 
+                        value="Deletar"/>
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">Alterar</f:facet>
+                        <h:commandButton action="#{produtoBean.setP(produto)}"
+                        onclick="PF('dlg2').show();" 
+                        value="Alterar" />
+
+                    </p:column>
+                    
+                </p:dataTable>
+
+            </h:form>
+
+            <br></br>
+            <br></br>
+            
+            <h:form>
+                
+                <p:commandButton 
+                    value="Cadastrar Produto" 
+                    onclick="PF('dlg1').show();" 
+                    style="margin-right:20px;" 
+                    styleClass="ui-priority-primary" 
+                />
+            </h:form>
+
+            <p:dialog header="Cadastro de Produto" widgetVar="dlg1" minHeight="40" modal="true"
+                            position="center">
+                
+                <h:form> 
+                    
+                    <p:panelGrid columns="2">
+                 
+                        <h3>Descrição</h3>
+                        <span class="ui-float-label">
+                            <p:inputText id="iDescricao" value="#{produtoBean.p.descricao}" />
+                        </span>
+
+                        <h3>Estoque Mínimo</h3>
+                        <p:inputNumber id="iEstMin" value="#{produtoBean.p.estoqueMin}">
+                        </p:inputNumber> 
+
+                        <h3>Estoque Máximo</h3>
+                        <p:inputNumber id="iEstMax" value="#{produtoBean.p.estoqueMax}">
+                        </p:inputNumber> 
+
+                        <h3>Valor</h3>
+                        <p:inputNumber id="iValor" value="#{produtoBean.p.valor}">
+                        </p:inputNumber> 
+                        <br></br>
+                        <br></br>
+                        <p:commandButton value="Cadastrar Produto" id="cadProdButton" 
+                        action="#{produtoBean.salvar}" style="margin-right:20px;" 
+                        styleClass="ui-priority-primary" />
+                    
+                    </p:panelGrid>
+                    
+                </h:form>
+
+            </p:dialog>
+
+
+            <p:dialog header="Alterar cadastro" widgetVar="dlg2" minHeight="40" modal="true"
+                            position="center">
+                
+                <h:form> 
+                    
+                    <p:panelGrid columns="2">
+                 
+                        <h3>Descrição</h3>
+                        <span class="ui-float-label">
+                            <p:inputText id="iDescricao2" value="#{produtoBean.p.descricao}" />
+                        </span>
+
+                        <h3>Estoque Mínimo</h3>
+                        <p:inputNumber id="iEstMin2" value="#{produtoBean.p.estoqueMin}">
+                        </p:inputNumber> 
+
+                        <h3>Estoque Máximo</h3>
+                        <p:inputNumber id="iEstMax2" value="#{produtoBean.p.estoqueMax}">
+                        </p:inputNumber> 
+
+                        <h3>Valor</h3>
+                        <p:inputNumber id="iValor2" value="#{produtoBean.p.valor}">
+                        </p:inputNumber> 
+                        <br></br>
+                        <br></br>
+                        <p:commandButton value="Alterar Produto" id="altProdButton" 
+                        action="#{produtoBean.alterar(produtoBean.p)}" style="margin-right:20px;" 
+                        styleClass="ui-priority-primary" />
+                    
+                    </p:panelGrid>
+                    
+                </h:form>
+
+            </p:dialog>
+            
+         </h:body>
+</html>
+
+

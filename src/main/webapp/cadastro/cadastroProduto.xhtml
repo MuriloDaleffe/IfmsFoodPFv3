@@ -1,0 +1,51 @@
+<!-- <?xml version='1.0' encoding='UTF-8' ?> -->
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+            <title>Cadastro de Produto</title>
+            <style type="text/css">
+              .ui-widget {
+                  font-size: 90%;
+              } 
+            </style>
+         </h:head>
+  
+         <h:body>
+            <h1>Cadastro de Produtos</h1>
+
+
+            <i id="customheader" class="pi pi-home" style="display:none"></i>
+            <h:form>    
+                 
+              <h3>Descrição</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iDescricao" value="#{produtoBean.p.descricao}" />
+                  <p:outputLabel for="@previous" value="Descrição" />
+              </span>
+
+              <h3>Estoque Mínimo</h3>
+              <p:inputNumber id="iEstMin" value="#{produtoBean.p.estoqueMin}">
+              </p:inputNumber> 
+
+              <h3>Estoque Máximo</h3>
+              <p:inputNumber id="iEstMax" value="#{produtoBean.p.estoqueMax}">
+              </p:inputNumber> 
+
+              <h3>Valor</h3>
+              <p:inputNumber id="iValor" value="#{produtoBean.p.valor}">
+              </p:inputNumber> 
+              <br></br>
+              <br></br>
+              <p:commandButton value="Cadastrar Produto" id="cadProdButton" 
+              action="#{produtoBean.salvar}" style="margin-right:20px;" 
+              styleClass="ui-priority-primary" />
+            
+            </h:form>
+
+         </h:body>
+</html>

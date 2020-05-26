@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+                   <title>Itens Venda</title>
+         </h:head>
+  
+         <h:body>
+
+            <h:form>
+                
+                <h3>Produtos Cadastrados</h3>
+                <p:dataTable var="produto" value="#{produtoBean.listarTodos()}">
+                    <p:column headerText="Descrição">
+                        <h:outputText value="#{produto.descricao}" />
+                    </p:column>
+                
+                    <p:column headerText="Estoque Mínimo (Unidades)">
+                        <h:outputText value="#{produto.estoqueMin}" />
+                    </p:column>
+                
+                    <p:column headerText="Estoque Máximo (Unidades)">
+                        <h:outputText value="#{produto.estoqueMax}" />
+                    </p:column>
+                
+                    <p:column headerText="Valor (R$)">
+                        <h:outputText value="#{produto.valor}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Selecionar</f:facet>
+                        <h:commandButton action="#{itensVendasBean.itens.setProdutos(produto)}"
+                                        value="Selecionar" />
+                    </p:column>
+                    
+                </p:dataTable>
+
+                <h3>Quantidade</h3>
+                <p:inputNumber id="qtdItens" value="#{itensVendasBean.itens.qtd}">
+                </p:inputNumber>  
+
+                <h3>Mesa</h3>
+                <p:dataTable var="mesa" value="#{mesaBean.listarTodos()}">
+                    <p:column headerText="Numero">
+                        <h:outputText value="#{mesa.num}" />
+                    </p:column>
+                
+                    <p:column headerText="Ocupada">
+                        <h:outputText value="#{mesa.status}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Selecionar</f:facet>
+                        <h:commandButton action="#{itensVendasBean.itens.setMesa(mesa)}"
+                                        value="Selecionar" />
+                    </p:column>
+                    
+                </p:dataTable>
+
+                <h3>Cliente</h3>
+                <p:dataTable var="cliente" value="#{pesFisBean.listarTodos()}">
+                    <p:column headerText="Cliente">
+                        <h:outputText value="#{cliente.nome}" />
+                    </p:column>
+                
+                    <p:column headerText="CPF">
+                        <h:outputText value="#{cliente.cpf}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Selecionar</f:facet>
+                        <h:commandButton action="#{itensVendasBean.itens.setCliente(cliente)}"
+                                        value="Selecionar" />
+                    </p:column>
+                    
+                </p:dataTable>
+
+                <br></br>
+                <br></br>
+
+                <p:commandButton value="Fechar pedido" id="cadPedidoButton" 
+                action="#{itensVendasBean.salvar}" style="margin-right:20px;" 
+                styleClass="ui-priority-primary" />
+
+            </h:form>
+
+         </h:body>
+</html>

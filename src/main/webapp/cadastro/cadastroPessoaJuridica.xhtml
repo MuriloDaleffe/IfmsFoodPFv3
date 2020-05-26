@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         <h:head>
+                   <title>Cadastro de Pessoa Jurídica</title>
+         </h:head>
+  
+         <h:body>
+            <h1>Cadastro de Pessoa Jurídica</h1>
+            <h:form>    
+                 
+              <h3>Nome Completo</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iNomePeJud" value="#{pesJurBean.peJuridica.nome}" />
+                  <p:outputLabel for="@previous" value="Nome" />
+              </span>
+              
+              <h3>Razão Social</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iRazSoc" value="#{pesJurBean.peJuridica.razSoc}" />
+                  <p:outputLabel for="@previous" value="Razão Social" />
+              </span>
+
+              <h3>CNPJ</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iCNPJ" value="#{pesJurBean.peJuridica.cnpj}" mask="99.999.999/9999-99"/>
+                <p:outputLabel for="@previous" value="CNPJ:" />
+              </span> 
+
+              <h3>Endereço</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iEndPeJud" value="#{pesJurBean.peJuridica.endereco}" />
+                  <p:outputLabel for="@previous" value="Endereço" />
+              </span>   
+
+              <h3>E-mail</h3>
+              <span class="ui-float-label">
+                  <p:inputText id="iEmailPeJud" value="#{pesJurBean.peJuridica.email}" />
+                  <p:outputLabel for="@previous" value="E-mail" />
+              </span>   
+
+              <h3>Telefone</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iPeJudFone" value="#{pesJurBean.peJuridica.fone}" mask="(99) 9999-9999"/>
+                <p:outputLabel for="@previous" value="Telefone:" />
+              </span>
+
+              <!-- <h3>Data de Nascimento</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iDatNasc" value="#{pesJurBean.peJuridica.dataNasc}" mask="99/99/9999"/>
+                <p:outputLabel for="@previous" value="Data: " />
+              </span>  -->
+
+              <h3>Data de Cadastro</h3>
+              <span class="ui-float-label">
+                <p:inputMask id="iDatCadPeJud" value="#{pesJurBean.peJuridica.dtCadastro}" mask="99/99/9999"/>
+                <p:outputLabel for="@previous" value="Data: " />
+              </span> 
+              <br></br>
+              <br></br>
+              <p:commandButton value="Cadastrar" id="cadPeJudButton" 
+              action="#{pesJurBean.salvar}" style="margin-right:20px;" 
+              styleClass="ui-priority-primary" />
+            
+            </h:form>
+         </h:body>
+</html>
